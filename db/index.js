@@ -18,30 +18,30 @@ module.exports = {
 		const columnName = _.snakeCase(field.name);
 
 		switch(field.type) {
-			case 'uuid':
-					table.uuid(columnName).defaultTo(knex.raw('gen_random_uuid()'));
-					if (field.primary === true) table.primary(columnName);
-					if (field.unique === true) table.unique(columnName);
-				break;
-			case 'text':
-			case 'email':
-				table.string(columnName);
-				break;
-			case 'boolean':
-				table.boolean(columnName);
-				break;
-			case 'date':
-				table.date(columnName);
-				break;
-			case 'timestamp':
-				if (field.default === 'now') {
-					table.timestamp(columnName, { useTz: false }).defaultTo(knex.fn.now());
-				} else {
-					table.timestamp(columnName, { useTz: false });
-				}
-				break;
-			default:
-				console.warn(`Field ${field.name} skipped due to unsupported field type - ${field.type}`);
+		case 'uuid':
+			table.uuid(columnName).defaultTo(knex.raw('gen_random_uuid()'));
+			if (field.primary === true) table.primary(columnName);
+			if (field.unique === true) table.unique(columnName);
+			break;
+		case 'text':
+		case 'email':
+			table.string(columnName);
+			break;
+		case 'boolean':
+			table.boolean(columnName);
+			break;
+		case 'date':
+			table.date(columnName);
+			break;
+		case 'timestamp':
+			if (field.default === 'now') {
+				table.timestamp(columnName, { useTz: false }).defaultTo(knex.fn.now());
+			} else {
+				table.timestamp(columnName, { useTz: false });
+			}
+			break;
+		default:
+			console.warn(`Field ${field.name} skipped due to unsupported field type - ${field.type}`);
 		}
 	},
 
