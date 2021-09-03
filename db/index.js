@@ -1,6 +1,5 @@
 const _ = require('lodash');
-const knex = require('../services/db');
-const modelConfigs = require('../models/config');
+const knex = require('./knex');
 const { customError } = require('../services/error-handler');
 
 module.exports = {
@@ -12,37 +11,6 @@ module.exports = {
 
 	dropTable(tableName) {
 		return knex.schema.dropTableIfExists(tableName);
-	},
-
-	addField(table, field) {
-		const columnName = _.snakeCase(field.name);
-
-		switch(field.type) {
-		case 'uuid':
-			table.uuid(columnName).defaultTo(knex.raw('gen_random_uuid()'));
-			if (field.primary === true) table.primary(columnName);
-			if (field.unique === true) table.unique(columnName);
-			break;
-		case 'text':
-		case 'email':
-			table.string(columnName);
-			break;
-		case 'boolean':
-			table.boolean(columnName);
-			break;
-		case 'date':
-			table.date(columnName);
-			break;
-		case 'timestamp':
-			if (field.default === 'now') {
-				table.timestamp(columnName, { useTz: false }).defaultTo(knex.fn.now());
-			} else {
-				table.timestamp(columnName, { useTz: false });
-			}
-			break;
-		default:
-			console.warn(`Field ${field.name} skipped due to unsupported field type - ${field.type}`);
-		}
 	},
 
 	convertCase(data) {
@@ -90,13 +58,50 @@ module.exports = {
 			.del();
 	},
 
+	addField(table, field) {
+		const columnName = _.snakeCase(field.name);
+
+		switch(field.type) {
+		case 'uuid':
+			if (field.default === 'uuid') {
+				table.uuid(columnName).defaultTo(knex.raw('gen_random_uuid()'));
+			} else {
+				table.uuid(columnName);
+			}
+			break;
+		case 'text':
+		case 'email':
+			table.string(columnName);
+			break;
+		case 'boolean':
+			table.boolean(columnName);
+			break;
+		case 'date':
+			table.date(columnName);
+			break;
+		case 'timestamp':
+			if (field.default === 'now') {
+				table.timestamp(columnName, { useTz: false }).defaultTo(knex.fn.now());
+			} else {
+				table.timestamp(columnName, { useTz: false });
+			}
+			break;
+		default:
+			console.warn(`Field ${field.name} skipped due to unsupported field type - ${field.type}`);
+		}
+
+		// Apply flags
+		if (field.primary === true) table.primary(columnName);
+		if (field.unique === true) table.unique(columnName);
+	},
+
 	/*
 	*	Functions to setup database
 	*	Uses model configs to populate tables and fields
-	*	Uses config list to breakdown tables
+	*	Uses model configs to breakdown tables
 	*
 	*/
-	async setup() {
+	async setup(modelConfigs) {
 		const tables = modelConfigs.reduce(async (acc, config) => {
 			if (!config.table) throw customError(400, 'Missing table for config');
 
@@ -108,7 +113,7 @@ module.exports = {
 		return tables;
 	},
 
-	async breakdown() {
+	async breakdown(modelConfigs) {
 		const tables = modelConfigs.reduce(async (acc, config) => {
 			if (!config.table) throw customError(400, 'Missing table for config');
 

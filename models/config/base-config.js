@@ -3,9 +3,10 @@ module.exports = {
 		{
 			name: 'id',
 			type: 'uuid',
+			default: 'uuid',
+			system: true,
 			primary: true,
-			unique: true,
-			system: true
+			unique: true
 		},
 		{
 			name: 'dateCreated',

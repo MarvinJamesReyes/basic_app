@@ -26,8 +26,9 @@ module.exports = extend(baseConfig, {
 			name: 'isPalindrome',
 			type: 'boolean',
 			system: true,
-			calculatedFn: messageParser.isPalindrome,
-			calculatedArgs: ['content']
+			calculatedFn(record) {
+				return messageParser.isPalindrome(record.content);
+			}
 		}
 	],
 });

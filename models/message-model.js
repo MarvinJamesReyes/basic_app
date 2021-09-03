@@ -1,5 +1,5 @@
-const BaseModel = require('./base-model.js');
-const messageConfig = require('./config/message-config.js')
+const BaseModel = require('./base-model');
+const messageConfig = require('./config/message-config')
 
 module.exports = class MessageModel extends BaseModel {
 	constructor(props) {

@@ -8,7 +8,7 @@ function handleError(req, res, next) {
 }
 
 module.exports = {
-	idCheck: [
+	hasId: [
 		param('id').notEmpty().isUUID(),
 		handleError
 	],

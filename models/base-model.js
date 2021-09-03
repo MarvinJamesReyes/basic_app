@@ -21,10 +21,11 @@ module.exports = class BaseModel {
 	}
 
 	async update() {
+		const { id } = this.props; // Store id due to system fields removal
 		const [record] = await this.load();
-		// Update record beforehand to apply calculcations on updated values
-		this.applyCalculatedFields({ ...record, ...this.props });
-		return db.update(this.table, this.props);
+		this.excludeSystemFields();
+		this.applyCalculatedFields({ ...record, ...this.props }); // Use updated values and existing fields
+		return db.update(this.table, { id, ...this.props });
 	}
 
 	del() {
@@ -43,10 +44,7 @@ module.exports = class BaseModel {
 	applyCalculatedFields(data = {}) {
 		this.fields.forEach((field) => {
 			if (!field.calculatedFn || !_.isFunction(field.calculatedFn)) return field;
-			const args = field.calculatedArgs
-				? field.calculatedArgs.map(arg => data[arg])
-				: [];
-			this.props[field.name] = field.calculatedFn(...args);
+			this.props[field.name] = field.calculatedFn(data);
 		});
 	}
 }

@@ -1,6 +1,7 @@
+const modelConfigs = require('../models/config');
 const db = require('../db');
 
-db.setup()
+db.setup(modelConfigs)
 	.then(results => {
 		console.log('Created the following tables -', results);
 		process.exit(0);
