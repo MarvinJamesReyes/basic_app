@@ -76,6 +76,9 @@ module.exports = {
 		case 'boolean':
 			table.boolean(columnName);
 			break;
+		case 'integer':
+			table.integer(columnName);
+			break;
 		case 'date':
 			table.date(columnName);
 			break;

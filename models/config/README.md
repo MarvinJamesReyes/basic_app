@@ -1,5 +1,5 @@
 ## Model Configs
-Used to define model fields, table and entity information
+Files used to describe model fields, table and entity information
 
 ### Fields
 Fields are defined by a name and a field type
@@ -10,15 +10,15 @@ Fields are defined by a name and a field type
 }
 ```
 
-Supported field types include:
-* `boolean`
-* `date`
-* `email`
-* `text`
-* `timestamp`
-* `uuid`
+#### Supported field types include:
+* `boolean` True or False values
+* `date` Stores a date, typically in ISO8601
+* `email` A text value in email format
+* `text` Stores text values
+* `timestamp` A timestamp in miliseconds
+* `uuid` A unique id in uuid v4
 
-Fields can also have the following flags:
+#### Fields can also have the following flags:
 * `default` Apply a default value for the field (Currently only supports on uuids and timestamps)
 * `system` Mark a field as system field. System fields are not API writable and are only populated by the system
 * `primary` Mark as field as a primary key in a table
