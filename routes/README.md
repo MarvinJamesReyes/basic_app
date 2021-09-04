@@ -5,10 +5,10 @@ router.post('/example', validator.fn, ...otherMiddleware, controller.fn);
 ```
 
 ### Typical API routes include:
-* `POST /save`
-* `GET /:id`
-* `GET /list`
-* `PUT /:id/update`
-* `DELETE /:id/delete`
+* `GET /` Lists all records
+* `POST /` Saves a record
+* `GET /:id` Loads a single record
+* `PUT /:id` Updates a single record
+* `DELETE /:id` Deletes a single record
 
 [&larr; Go Back](../README.md)
