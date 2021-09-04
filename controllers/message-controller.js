@@ -1,24 +1,13 @@
 const MessageModel = require('../models/message-model')
 
 module.exports = {
-	async load(req, res, next) {
-		const { id } = req.params;
-
-		try {
-			const model = new MessageModel({ id });
-			const [results] = await model.load();
-
-			if (!results) return res.send('Record not found');
-			return res.json(results);
-		} catch(err) { next(err) }
-	},
-
 	async list(req, res, next) {
 		try {
 			const model = new MessageModel();
 			const results = await model.list(model.table);
+			const message = 'List of records';
 
-			return res.json({ results });
+			return res.json({ message, results });
 		} catch(err) { next(err) }
 	},
 
@@ -28,8 +17,22 @@ module.exports = {
 		try {
 			const model = new MessageModel(record);
 			const [results] = await model.save();
+			const message = 'Record saved';
 
-			return res.send(`Record Saved - ${results}`);
+			return res.status(201).json({ message, results });
+		} catch(err) { next(err) }
+	},
+
+	async load(req, res, next) {
+		const { id } = req.params;
+
+		try {
+			const model = new MessageModel({ id });
+			const [results] = await model.load();
+			const message = 'Record loaded';
+
+			if (!results) return res.json({ message: 'Record not found' });
+			return res.json({ message, results });
 		} catch(err) { next(err) }
 	},
 
@@ -40,9 +43,10 @@ module.exports = {
 		try {
 			const model = new MessageModel({ id, ...record });
 			const [results] = await model.update();
+			const message = 'Record updated';
 
-			if (!results) return res.send('Record not found');
-			return res.send(`Record Updated - ${results}`);
+			if (!results) return res.json({ message: 'Record not found' });
+			return res.json({ message, results });
 		} catch(err) { next(err) }
 	},
 
@@ -52,9 +56,10 @@ module.exports = {
 		try {
 			const model = new MessageModel({ id });
 			const [results] = await model.del();
+			const message = 'Record deleted';
 
-			if (!results) return res.send('Record not found');
-			return res.send(`Record Deleted - ${results}`);
+			if (!results) return res.json({ message: 'Record not found' });
+			return res.json({ message, results });
 		} catch(err) { next(err) }
 	},
 };
