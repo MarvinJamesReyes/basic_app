@@ -9,7 +9,7 @@ module.exports = class BaseController {
 			const results = await model.list(model.table);
 			const message = 'List of records';
 
-			return res.json({ message, results });
+			return res.status(200).json({ message, results });
 		} catch(err) { next(err); }
 	}
 
@@ -33,8 +33,8 @@ module.exports = class BaseController {
 			const [results] = await model.load();
 			const message = 'Record loaded';
 
-			if (!results) return res.json({ message: 'Record not found' });
-			return res.json({ message, results });
+			if (!results) return res.status(200).json({ message: 'Record not found' });
+			return res.status(200).json({ message, results });
 		} catch(err) { next(err); }
 	}
 
@@ -43,12 +43,12 @@ module.exports = class BaseController {
 		const { record } = req.body;
 
 		try {
-			const model = new this.Model({ id, ...record });
+			const model = new this.Model({ ...record, id });
 			const [results] = await model.update();
 			const message = 'Record updated';
 
-			if (!results) return res.json({ message: 'Record not found' });
-			return res.json({ message, results });
+			if (!results) return res.status(200).json({ message: 'Record not found' });
+			return res.status(200).json({ message, results });
 		} catch(err) { next(err); }
 	}
 
@@ -60,8 +60,8 @@ module.exports = class BaseController {
 			const [results] = await model.del();
 			const message = 'Record deleted';
 
-			if (!results) return res.json({ message: 'Record not found' });
-			return res.json({ message, results });
+			if (!results) return res.status(200).json({ message: 'Record not found' });
+			return res.status(200).json({ message, results });
 		} catch(err) { next(err); }
 	}
 };

@@ -44,7 +44,7 @@ module.exports = class BaseModel {
 	applyCalculatedFields(data = {}) {
 		this.fields.forEach((field) => {
 			if (!field.calculatedFn || !_.isFunction(field.calculatedFn)) return field;
-			this.props[field.name] = field.calculatedFn(data);
+			this.props[field.name] = field.calculatedFn(data) || null;
 		});
 	}
 };

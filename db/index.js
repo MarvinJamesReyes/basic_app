@@ -4,42 +4,76 @@ const { customError } = require('../services/error-handler');
 
 module.exports = {
 	list(tableName) {
-		return knex.select().from(tableName);
+		return knex
+			.select()
+			.from(tableName)
+			.catch((err) => {
+				throw customError(400, err.message);
+			});
 	},
 
 	insert(tableName, data) {
-		const record = this.convertCase(data);
+		const record = this.convertToSnake(data);
 		return knex(tableName)
 			.returning('id')
-			.insert(record);
+			.insert(record)
+			.catch((err) => {
+				throw customError(400, err.message);
+			});
 	},
 
 	load(tableName, data) {
-		const record = this.convertCase(data);
+		const record = this.convertToSnake(data);
 		const { id } = record;
 		if (!id) throw customError(400, 'Missing id');
-		return knex.select().from(tableName).where({ id });
+		return knex
+			.select()
+			.from(tableName)
+			.where({ id })
+			.catch((err) => {
+				throw customError(400, err.message);
+			});
 	},
 
 	update(tableName, data) {
-		const record = this.convertCase(data);
+		const record = this.convertToSnake(data);
 		const { id } = record;
 		if (!id) throw customError(400, 'Missing id');
 		return knex(tableName)
 			.returning('id')
 			.where({ id })
-			.update(record);
+			.update(record)
+			.catch((err) => {
+				throw customError(400, err.message);
+			});
 	},
 
 	del(tableName, data) {
-		const record = this.convertCase(data);
+		const record = this.convertToSnake(data);
 		const { id } = record;
 		if (!id) throw customError(400, 'Missing id');
 		return knex(tableName)
 			.returning('id')
 			.where({ id })
-			.del();
+			.del()
+			.catch((err) => {
+				throw customError(400, err.message);
+			});
 	},
+
+	convertToSnake(data) {
+		return _.reduce(data, (acc, value, key) => {
+			acc[_.snakeCase(key)] = value;
+			return acc;
+		}, {});
+	},
+
+	/*
+	*	Functions for database setup and breakdown
+	*	Uses model configs to populate tables and fields
+	*	Uses model configs to breakdown tables
+	*
+	*/
 
 	createTable(tableName, fields) {
 		return knex.schema.createTable(tableName, (table) => {
@@ -91,19 +125,6 @@ module.exports = {
 		if (field.unique === true) table.unique(columnName);
 	},
 
-	convertCase(data) {
-		return _.reduce(data, (acc, value, key) => {
-			acc[_.snakeCase(key)] = value;
-			return acc;
-		}, {});
-	},
-
-	/*
-	*	Functions to setup database
-	*	Uses model configs to populate tables and fields
-	*	Uses model configs to breakdown tables
-	*
-	*/
 	async breakdown(modelConfigs) {
 		const tables = [];
 		for (const config of modelConfigs) {
