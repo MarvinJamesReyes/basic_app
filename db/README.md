@@ -16,4 +16,4 @@ Database layer logic. Processes requests and queries, and interacts with the DB 
 * `DB_PASS` Database password
 * `DB_NAME`	Database name
 
-[&larr; Go Back](../)
+[&larr; Go Back](../README.md)

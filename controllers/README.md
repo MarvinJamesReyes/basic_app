@@ -12,4 +12,4 @@ functionName(req, res, next) {
 * `res` Object representing server response. Sends response back to client
 * `next` Calls the next middleware in the chain
 
-[&larr; Go Back](../)
+[&larr; Go Back](../README.md)
