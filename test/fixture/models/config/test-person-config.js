@@ -1,5 +1,5 @@
-const extend = require('../../../models/config/extend');
-const baseConfig = require('../../../models/config/base-config');
+const extend = require('../../../../models/config/extend');
+const baseConfig = require('../../../../models/config/base-config');
 
 module.exports = extend(baseConfig, {
 	table: 'test_person',

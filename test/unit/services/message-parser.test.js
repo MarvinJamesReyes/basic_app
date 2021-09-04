@@ -1,5 +1,5 @@
 const { strict: assert } = require('assert');
-const messageParser = require('../../../services/message-parser')
+const messageParser = require('../../../services/message-parser');
 
 describe(__filename, () => {
 	it('should return true if string length is even, false otherwise', () => {
