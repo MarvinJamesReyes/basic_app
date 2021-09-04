@@ -10,4 +10,4 @@ Defines the functions and data layer actions inherent to each entity
 * `excludeSystemFields` Removes non api-writable system fields from a record
 * `applyCalculatedFields` Resolves any calculated functions and applies their values to a record
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../)

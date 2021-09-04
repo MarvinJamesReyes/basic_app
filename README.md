@@ -1,23 +1,23 @@
 # Basic App
 
 ## File Structure
-### [Controllers](./controllers/README.md)
+### [Controllers](./controllers)
 Processes requests received from the router and passes them onto the Model or services
-### [DB](./db/README.md)
+### [DB](./db)
 Database layer logic. Processes requests and queries, and interacts with the DB using `Knex.js`
-### [Models](./models/README.md)
+### [Models](./models)
 Defines the functions and data layer actions inherent to each entity
-### [Models/Config](./models/config/README.md)
+### [Models/Config](./models/config)
 Files used to describe model fields, table and entity information
-### [Routes](./routes/README.md)
+### [Routes](./routes)
 Defines connections between the api and the controller logic
-### [Scripts](./scripts/README.md)
+### [Scripts](./scripts)
 Script files meant to serve a specific task or set of tasks. Typically only used as needed
-### [Services](./services/README.md)
+### [Services](./services)
 Runs and configures core business logic. Sets of functions or classes which perform repeated logic
-### [Tests](./test/README.md)
+### [Tests](./test)
 Stores test files used with `Mocha`
-### [Validation](./validation/README.md)
+### [Validation](./validation)
 Defines API validation rules using `express-validator`
 
 ---

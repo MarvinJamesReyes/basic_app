@@ -1,5 +1,5 @@
 ## Tests
-Stores test files used with `Mocha`
+Stores test files used with `Mocha`. Test folders are structured as follows:
 
 ### Fixture
 Defines test database and model configs. Used to create tables for test database
@@ -24,4 +24,4 @@ sh run.sh -c setup -t
 sh run.sh -c test
 ```
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../)

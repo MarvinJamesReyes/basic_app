@@ -11,4 +11,4 @@ router.post('/example', validator.fn, ...otherMiddleware, controller.fn);
 * `PUT /:id/update`
 * `DELETE /:id/delete`
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../)

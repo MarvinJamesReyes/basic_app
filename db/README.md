@@ -10,10 +10,10 @@ Database layer logic. Processes requests and queries, and interacts with the DB 
 * `createTable` Creates a table in db with a given `tableName` and `fields`
 * `dropTable` Drops a table using a given `tableName`
 
-### Knex DB configuration is defined in `~/config.js`. Development uses the following envars
+### Knex DB configuration is defined in `config.js`. Development uses the following envars
 * `APP_HOST` App hosting location IP
 * `DB_USER` Database username
 * `DB_PASS` Database password
 * `DB_NAME`	Database name
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../)
