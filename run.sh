@@ -11,6 +11,8 @@ fi
 
 if [ -n "$cmd" ] ; then
 	echo Running $cmd;
+else
+	echo No command specified;
 fi
 
 case "${cmd}" in
