@@ -1,3 +1,6 @@
+const appModelConfigs = require('../../../models/config')
+
 module.exports = [
-	require('./test-config.js')
+	...appModelConfigs,
+	require('./test-person-config.js')
 ];

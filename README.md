@@ -24,7 +24,8 @@ Defines API validation rules using `express-validator`
 
 ## Setup
 ### Prerequisites
-* Postgres should be installed and a database should exist. You can store the DB name under `DN_NAME` for app usage
+* Postgres should be installed
+* App database should be created. The DB name should be stored as an envar `DN_NAME` for app usage
 * Node, npm and/or yarn should be installed
 
 ### Config

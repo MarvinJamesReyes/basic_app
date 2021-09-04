@@ -104,27 +104,23 @@ module.exports = {
 	*	Uses model configs to breakdown tables
 	*
 	*/
-	async setup(modelConfigs) {
-		const tables = modelConfigs.reduce(async (acc, config) => {
+	async breakdown(modelConfigs) {
+		const tables = [];
+		for (const config of modelConfigs) {
 			if (!config.table) throw customError(400, 'Missing table for config');
-
-			await this.createTable(config.table, config.fields);
-			acc.push(config.table);
-			return acc;
-		}, []);
-
+			await this.dropTable(config.table);
+			tables.push(config.table);
+		}
 		return tables;
 	},
 
-	async breakdown(modelConfigs) {
-		const tables = modelConfigs.reduce(async (acc, config) => {
+	async setup(modelConfigs) {
+		const tables = [];
+		for (const config of modelConfigs) {
 			if (!config.table) throw customError(400, 'Missing table for config');
-
-			await this.dropTable(config.table);
-			acc.push(config.table);
-			return acc;
-		}, []);
-
+			await this.createTable(config.table, config.fields);
+			tables.push(config.table);
+		}
 		return tables;
 	},
 }
