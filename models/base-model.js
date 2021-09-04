@@ -47,4 +47,4 @@ module.exports = class BaseModel {
 			this.props[field.name] = field.calculatedFn(data);
 		});
 	}
-}
+};

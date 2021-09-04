@@ -10,6 +10,7 @@ module.exports = {
 		"ecmaVersion": 12
 	},
 	"rules": {
-		"indent": ["error", "tab"]
+		"indent": ["error", "tab"],
+		"semi": ["error"]
 	}
 };

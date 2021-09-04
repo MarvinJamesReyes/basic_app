@@ -24,4 +24,4 @@ module.exports = {
 		const options = { type: 'validation', data };
 		return customError(400, 'validation', options);
 	}
-}
+};

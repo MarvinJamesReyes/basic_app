@@ -2,7 +2,7 @@ const db = require('../db');
 const { server: { env }, db: { connection } } = require('../config');
 
 const modelConfigs = env === 'test'
-	? require('../test/fixture/config')
+	? require('../test/fixture/models/config')
 	: require('../models/config');
 
 db.setup(modelConfigs)
