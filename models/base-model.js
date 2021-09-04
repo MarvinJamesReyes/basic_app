@@ -6,6 +6,10 @@ module.exports = class BaseModel {
 		this.props = props;
 	}
 
+	list() {
+		return db.list(this.table);
+	}
+
 	save() {
 		this.excludeSystemFields();
 		this.applyCalculatedFields(this.props);
@@ -14,10 +18,6 @@ module.exports = class BaseModel {
 
 	load() {
 		return db.load(this.table, this.props);
-	}
-
-	list() {
-		return db.list(this.table);
 	}
 
 	async update() {

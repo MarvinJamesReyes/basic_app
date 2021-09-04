@@ -46,9 +46,10 @@ node server
 
 ## Features
 ### API Functions
-API calls are prefixed with `/api/:model`
+API calls are prefixed with `/api/:models` where the name of model is in plural
 
-* `POST /save` Accepts a `record` object found in the `req.body`. Should describe record attributes
+* `GET /` Lists all records for a given table
+* `POST /` Saves a `record` object found in the `req.body`. Should describe record attributes
 ```
 {
 	"record": {
@@ -60,8 +61,7 @@ API calls are prefixed with `/api/:model`
 }
 ```
 * `GET /:id` Returns record data stored in the DB by matching the `id` value
-* `GET /list` Lists all records for a given table
-* `PUT /:id/update` Updates a stored record using a `record` object found in the `req.body`. Similar to `save`. Attributes required are typically delta changes only
+* `PUT /:id` Updates a stored record using a `record` object found in the `req.body`. Similar to `save`. Attributes required are typically delta changes only
 ```
 {
 	"record": {
@@ -69,7 +69,7 @@ API calls are prefixed with `/api/:model`
 	}
 }
 ```
-* `DELETE /:id/delete` Deletes a record based on `id`. This is a hard delete
+* `DELETE /:id` Deletes a record based on `id`. This is a hard delete
 
 
 ### Commands

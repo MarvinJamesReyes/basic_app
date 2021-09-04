@@ -6,7 +6,7 @@ while getopts "c:t" arg; do
 done
 
 if [ "$test" = true ] ; then
-	echo TEST environment;
+	echo TEST ENVIRONMENT;
 fi
 
 if [ -n "$cmd" ] ; then

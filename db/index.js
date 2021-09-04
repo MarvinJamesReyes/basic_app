@@ -3,21 +3,8 @@ const knex = require('./knex');
 const { customError } = require('../services/error-handler');
 
 module.exports = {
-	createTable(tableName, fields) {
-		return knex.schema.createTable(tableName, (table) => {
-			return fields.forEach((field) => this.addField(table, field));
-		});
-	},
-
-	dropTable(tableName) {
-		return knex.schema.dropTableIfExists(tableName);
-	},
-
-	convertCase(data) {
-		return _.reduce(data, (acc, value, key) => {
-			acc[_.snakeCase(key)] = value;
-			return acc;
-		}, {});
+	list(tableName) {
+		return knex.select().from(tableName);
 	},
 
 	insert(tableName, data) {
@@ -32,10 +19,6 @@ module.exports = {
 		const { id } = record;
 		if (!id) throw customError(400, 'Missing id');
 		return knex.select().from(tableName).where({ id });
-	},
-
-	list(tableName) {
-		return knex.select().from(tableName);
 	},
 
 	update(tableName, data) {
@@ -56,6 +39,16 @@ module.exports = {
 			.returning('id')
 			.where({ id })
 			.del();
+	},
+
+	createTable(tableName, fields) {
+		return knex.schema.createTable(tableName, (table) => {
+			return fields.forEach((field) => this.addField(table, field));
+		});
+	},
+
+	dropTable(tableName) {
+		return knex.schema.dropTableIfExists(tableName);
 	},
 
 	addField(table, field) {
@@ -96,6 +89,13 @@ module.exports = {
 		// Apply flags
 		if (field.primary === true) table.primary(columnName);
 		if (field.unique === true) table.unique(columnName);
+	},
+
+	convertCase(data) {
+		return _.reduce(data, (acc, value, key) => {
+			acc[_.snakeCase(key)] = value;
+			return acc;
+		}, {});
 	},
 
 	/*

@@ -2,9 +2,9 @@
 Database layer logic. Processes requests and queries, and interacts with the DB using `Knex.js`
 
 ### Core functions include:
+* `list` Lists all records for a given table
 * `insert` Inserts a record into a table
 * `load` Loads a record using given `id` param
-* `list` Lists all records for a given table
 * `update` Updates a record with a given `id`
 * `del` Deletes a recod with a given `id`
 * `createTable` Creates a table in db with a given `tableName` and `fields`
