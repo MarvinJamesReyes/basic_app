@@ -10,7 +10,10 @@ module.exports = {
 	errorHandler(err, req, res, next) {
 		console.error(err);
 		if (err.type === 'validation') {
-			return res.status(err.status).json({ errors: err.data });
+			return res.status(err.status).json({
+				error: 'Validation error',
+				data: err.data
+			});
 		}
 		res.status(err.status).json({ error: err.message });
 		return next();

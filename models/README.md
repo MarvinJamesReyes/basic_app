@@ -1,7 +1,7 @@
 ## Models
-Defines the functions and data layer actions inherent to each entity
+Defines the functions and data layer actions inherent to each entity. Models can be extended using `base-model.js`. Doing so will inherit standard core functions
 
-### Core functions include:
+### Base core functions include:
 * `list` Lists all records for a given model
 * `save` Saves record to the database
 * `load` Loads a record using given `id` param

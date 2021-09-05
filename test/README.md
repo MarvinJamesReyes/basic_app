@@ -8,7 +8,7 @@ Defines test database and model configs. Used to create tables for test database
 Set of tests used to test functionality of different components working together. Contains tests for base components such as `base-controller` and `base-model`. Tests for extended components can go here as well
 
 ### Unit
-Set of tests used to test functionality of individual components. This includes certain services and db layer actions
+Set of tests used to test functionality of individual components. This includes test for services and db layer actions
 
 ---
 
