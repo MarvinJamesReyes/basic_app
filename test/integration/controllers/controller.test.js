@@ -85,15 +85,16 @@ describe(__filename, () => {
 		assert(_.isObject(res._json.results));
 	});
 
-	it('should return a 200 on succesful load call, but record not found', async () => {
+	it('should return a 404 on load when record is not found', async () => {
 		const req = {
 			params: { id: 'A6E01EA4-FE9E-4FEB-9F84-469603D6B66B' }
 		};
-		await testPersonController.load(req, res);
 
-		assert.equal(res._status, 200);
-		assert.equal(res._json.message, 'Record not found');
-		assert(!res._json.results);
+		await testPersonController.load(req, res, (err) => {
+			assert(err);
+			assert.equal(err.status, 404);
+			assert.equal(err.message, 'Record not found');
+		});
 	});
 
 	it('should return a 400 on failed load', async () => {
@@ -139,7 +140,7 @@ describe(__filename, () => {
 		assert(_.isString(res._json.results));
 	});
 
-	it('should return a 200 on succesful update call, but record not found', async () => {
+	it('should return a 404 on update when record is not found', async () => {
 		const req = {
 			params: { id: 'A6E01EA4-FE9E-4FEB-9F84-469603D6B66B' },
 			body: {
@@ -152,12 +153,14 @@ describe(__filename, () => {
 				}
 			}
 		};
-		await testPersonController.update(req, res);
 
-		assert.equal(res._status, 200);
-		assert.equal(res._json.message, 'Record not found');
-		assert(!res._json.results);
+		await testPersonController.update(req, res, (err) => {
+			assert(err);
+			assert.equal(err.status, 404);
+			assert.equal(err.message, 'Record not found');
+		});
 	});
+
 
 	it('should return a 400 on failed update, missing id', async () => {
 		const req = {
@@ -211,15 +214,16 @@ describe(__filename, () => {
 		assert(_.isString(res._json.results));
 	});
 
-	it('should return a 200 on succesful delete call, but record not found', async () => {
+	it('should return a 404 on delete when record is not found', async () => {
 		const req = {
 			params: { id: 'A6E01EA4-FE9E-4FEB-9F84-469603D6B66B' }
 		};
-		await testPersonController.del(req, res);
 
-		assert.equal(res._status, 200);
-		assert.equal(res._json.message, 'Record not found');
-		assert(!res._json.results);
+		await testPersonController.del(req, res, (err) => {
+			assert(err);
+			assert.equal(err.status, 404);
+			assert.equal(err.message, 'Record not found');
+		});
 	});
 
 	it('should return a 400 on failed delete', async () => {

@@ -1,3 +1,5 @@
+const { customError } = require('../services/error-handler');
+
 module.exports = class BaseController {
 	constructor(props) {
 		this.props = props;
@@ -33,7 +35,7 @@ module.exports = class BaseController {
 			const [results] = await model.load();
 			const message = 'Record loaded';
 
-			if (!results) return res.status(200).json({ message: 'Record not found' });
+			if (!results) return next(customError(404, 'Record not found'));
 			return res.status(200).json({ message, results });
 		} catch(err) { next(err); }
 	}
@@ -47,7 +49,7 @@ module.exports = class BaseController {
 			const [results] = await model.update();
 			const message = 'Record updated';
 
-			if (!results) return res.status(200).json({ message: 'Record not found' });
+			if (!results) return next(customError(404, 'Record not found'));
 			return res.status(200).json({ message, results });
 		} catch(err) { next(err); }
 	}
@@ -60,7 +62,7 @@ module.exports = class BaseController {
 			const [results] = await model.del();
 			const message = 'Record deleted';
 
-			if (!results) return res.status(200).json({ message: 'Record not found' });
+			if (!results) return next(customError(404, 'Record not found'));
 			return res.status(200).json({ message, results });
 		} catch(err) { next(err); }
 	}
