@@ -1,5 +1,5 @@
 ## Controllers
-Processes requests received from the router and passes them onto the Model or services. Sends response from the business logic to the client. Controllers can be extended using `base-controller.js`. Doing so will inherit standard core functions
+Processes requests received from the router and passes them onto the model or services. Sends response from the business logic to the client. Controllers can be extended using `base-controller.js`. Doing so will inherit standard core functions
 
 ### Base core functions include:
 * `list` Lists all records for a given model

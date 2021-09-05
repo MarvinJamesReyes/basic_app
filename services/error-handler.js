@@ -11,7 +11,7 @@ module.exports = {
 		console.error(err);
 		if (err.type === 'validation') {
 			return res.status(err.status).json({
-				error: 'Validation error',
+				error: err.message,
 				data: err.data
 			});
 		}
@@ -25,6 +25,6 @@ module.exports = {
 
 	validationError(data) {
 		const options = { type: 'validation', data };
-		return customError(400, 'validation', options);
+		return customError(400, 'Validation error', options);
 	}
 };

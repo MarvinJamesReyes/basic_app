@@ -1,8 +1,9 @@
 ## Routes
-Defines connections between the api and the controller logic. Assigns middleware to routes as needed
+Defines API endpoints. Sets connections between the api, controller logic and any other middleware
 ```
-router.post('/example', validator.fn, ...otherMiddleware, controller.fn);
+router.post('/example', validator.fn, ...otherMiddleware, controller.fn.bind(controller));
 ```
+Due to the nature of controllers being instances, they must be binded to call individual functions
 
 ### Typical API routes include:
 * `GET /` Lists all records
@@ -10,5 +11,6 @@ router.post('/example', validator.fn, ...otherMiddleware, controller.fn);
 * `GET /:id` Loads a single record
 * `PUT /:id` Updates a single record
 * `DELETE /:id` Deletes a single record
+
 
 [&larr; Go Back](../README.md)

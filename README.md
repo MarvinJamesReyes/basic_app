@@ -2,7 +2,7 @@
 
 ## File Structure
 ### [Controllers](./controllers)
-Processes requests received from the router and passes them onto the Model or services
+Processes requests received from the router and passes them onto the model or services
 ### [DB](./db)
 Database layer logic. Processes requests and queries, and interacts with the DB using `Knex.js`
 ### [Models](./models)
@@ -10,7 +10,7 @@ Defines the functions and data layer actions inherent to each entity
 ### [Models/Config](./models/config)
 Files used to describe model fields, table and entity information
 ### [Routes](./routes)
-Defines connections between the api and the controller logic
+Defines API endpoints. Sets connections between the api, controller logic and any other middleware
 ### [Scripts](./scripts)
 Script files meant to serve a specific task or set of tasks. Typically only used as needed
 ### [Services](./services)
