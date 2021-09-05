@@ -12,7 +12,7 @@ module.exports = {
 		if (err.type === 'validation') {
 			return res.status(err.status).json({
 				error: err.message,
-				data: err.data
+				results: err.data
 			});
 		}
 		res.status(err.status).json({ error: err.message });

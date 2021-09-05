@@ -7,6 +7,9 @@ Defines test database and model configs. Used to create tables for test database
 ### Integration
 Set of tests used to test functionality of different components working together. Contains tests for base components such as `base-controller` and `base-model`. Tests for extended components can go here as well
 
+### Postman
+Export of `Postman` tests used to test API calls. Contains `json` files used to import into `Postman`
+
 ### Unit
 Set of tests used to test functionality of individual components. This includes test for services and db layer actions
 
