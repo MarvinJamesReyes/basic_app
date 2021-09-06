@@ -1,6 +1,6 @@
 ## Routes
 Defines API endpoints. Sets connections between the api, controller logic and any other middleware
-```
+```javascript
 router.post('/example', validator.fn, ...otherMiddleware, controller.fn.bind(controller));
 ```
 Due to the nature of controllers being instances, they must be binded to call individual functions

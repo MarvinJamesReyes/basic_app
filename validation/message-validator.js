@@ -27,7 +27,7 @@ module.exports = {
 		body('record').notEmpty(),
 		body('record.sender').isEmail().bail().normalizeEmail().optional(),
 		body('record.recepient').isEmail().bail().normalizeEmail().optional(),
-		body('record.dateSent').isISO8601().toDate().optional(),
+		body('record.dateSent').isISO8601().bail().toDate().optional(),
 		handleError
 	]
 };

@@ -3,7 +3,7 @@ Files used to describe model fields, table and entity information
 
 ### Fields
 Fields are defined by a name and a field type
-```
+```javascript
 {
 	name: 'myField',
 	type: 'text'

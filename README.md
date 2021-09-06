@@ -9,10 +9,10 @@ API calls are prefixed with `/api/:models` where the name of model is in plural
 
 * `GET /` Lists all records for a given table
 * `POST /` Saves a `record` object found in the `req.body`. Should describe record attributes
-```
+```json
 {
 	"record": {
-		"sender": "client@email.local".
+		"sender": "client@email.local",
 		"recepient": "company@email.local",
 		"dateSent": "2021-09-01",
 		"content": "This is a text message"
@@ -21,7 +21,7 @@ API calls are prefixed with `/api/:models` where the name of model is in plural
 ```
 * `GET /:id` Returns record data stored in the DB by matching the `id` value
 * `PUT /:id` Updates a stored record using a `record` object found in the `req.body`. Similar to `save`. Attributes required are typically delta changes only
-```
+```json
 {
 	"record": {
 		"constent": "My updated message"
@@ -39,7 +39,7 @@ API calls are prefixed with `/api/:models` where the name of model is in plural
 * Node, npm and/or yarn should be installed
 * Postman should be installed for API testing
 
-### Config (#config)
+### Config
 App and DB configuration is defined in `config.js`. Values can be configured via envars
 
 ### Steps

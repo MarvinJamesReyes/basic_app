@@ -9,19 +9,19 @@ Processes requests received from the router and passes them onto the model or se
 * `del` Deletes a recod with a given `id`
 
 ### Controller functions typically have the following arguments:
-```
+```javascript
 functionName(req, res, next) {
 	try {
 		// Logic
 	} catch(err) { next(err) }
-},
+}
 ```
 * `req` Object representing client request. Contains data such as request param and body
 * `res` Object representing server response. Sends response back to client
 * `next` Calls the next middleware in the chain. In this case, errors are passed to the `errorHandler`
 
 ### Request responses
-Responses will always return two things:
+Responses should always return two things:
 * Status code, such as `2xx`, `4xx`, or `5xx`
 * A `JSON` object containing relevent response data or error information. This can have the following keys:
 	* `message` Describes the result of the response. Only for successful responses
@@ -29,25 +29,24 @@ Responses will always return two things:
 	* `error` Error information should the request fail
 
 For example a `save` request will return status `201`
-```
+```json
 {
 	"message": "Record saved",
 	"results": "<UUID of record>"
 }
 ```
 A `load` might look like this `200`
-```
+```json
 {
 	"message": "Record loaded",
 	"results": {
 		"field1": "value1",
-		"field2": "value2",
-		...
+		"field2": "value2"
 	}
 }
 ```
 While an `error` would look like so `400`
-```
+```json
 {
 	"error": "Error message"
 }
