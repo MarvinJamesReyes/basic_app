@@ -75,6 +75,8 @@ sh run.sh -c setup
 Processes requests received from the router and passes them onto the model or services
 ### [DB](./db)
 Database layer logic. Processes requests and queries, and interacts with the DB using `Knex.js`
+### [Docs](./docs)
+Supplementary documentation and client facing resources can be stored here
 ### [Models](./models)
 Defines the functions and data layer actions inherent to each entity
 ### [Models/Config](./models/config)
