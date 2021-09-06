@@ -43,6 +43,7 @@ API calls are prefixed with `/api/:models` where the name of model is in plural
 App and DB configuration is defined in `config.js`. Values can be configured via envars
 
 ### Steps
+* Install packages using `yarn` or `npm install`
 * Ensure `DB_NAME` has been defined with your database name
 * Ensure a database exists with the defined `DB_NAME`
 * Build your app tables
