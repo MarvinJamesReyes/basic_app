@@ -6,7 +6,7 @@ Processes requests received from the router and passes them onto the model or se
 * `save` Saves record to the database
 * `load` Loads a record using given `id` param
 * `update` Updates a record with a given `id`
-* `del` Deletes a recod with a given `id`
+* `del` Deletes a record with a given `id`
 
 ### Controller functions typically have the following arguments:
 ```javascript
@@ -23,7 +23,7 @@ functionName(req, res, next) {
 ### Request responses
 Responses should always return two things:
 * Status code, such as `2xx`, `4xx`, or `5xx`
-* A `JSON` object containing relevent response data or error information. This can have the following keys:
+* A `JSON` object containing relevant response data or error information. This can have the following keys:
 	* `message` Describes the result of the response. Only for successful responses
 	* `results` Relevant data related to the request
 	* `error` Error information should the request fail

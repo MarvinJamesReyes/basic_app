@@ -13,7 +13,7 @@ API calls are prefixed with `/api/:models` where the name of model is in plural
 {
 	"record": {
 		"sender": "client@email.local",
-		"recepient": "company@email.local",
+		"recipient": "company@email.local",
 		"dateSent": "2021-09-01",
 		"content": "This is a text message"
 	}
@@ -24,7 +24,7 @@ API calls are prefixed with `/api/:models` where the name of model is in plural
 ```json
 {
 	"record": {
-		"constent": "My updated message"
+		"content": "My updated message"
 	}
 }
 ```

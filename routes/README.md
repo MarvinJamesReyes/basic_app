@@ -3,7 +3,7 @@ Defines API endpoints. Sets connections between the api, controller logic and an
 ```javascript
 router.post('/example', validator.fn, ...otherMiddleware, controller.fn.bind(controller));
 ```
-Due to the nature of controllers being instances, they must be binded to call individual functions
+Due to the nature of controllers being instances, they must be bound to call individual functions
 
 ### Typical API routes include:
 * `GET /` Lists all records

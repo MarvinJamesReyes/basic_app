@@ -11,7 +11,7 @@ module.exports = extend(baseConfig, {
 			type: 'email'
 		},
 		{
-			name: 'recepient',
+			name: 'recipient',
 			type: 'email'
 		},
 		{

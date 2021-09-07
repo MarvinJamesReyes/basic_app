@@ -16,7 +16,7 @@ module.exports = {
 	save: [
 		body('record').notEmpty(),
 		body('record.sender').notEmpty().isEmail().bail().normalizeEmail(),
-		body('record.recepient').notEmpty().isEmail().bail().normalizeEmail(),
+		body('record.recipient').notEmpty().isEmail().bail().normalizeEmail(),
 		body('record.dateSent').notEmpty().isISO8601().bail().toDate(),
 		body('record.content').notEmpty(),
 		handleError
@@ -26,7 +26,7 @@ module.exports = {
 		param('id').notEmpty().isUUID(),
 		body('record').notEmpty(),
 		body('record.sender').isEmail().bail().normalizeEmail().optional(),
-		body('record.recepient').isEmail().bail().normalizeEmail().optional(),
+		body('record.recipient').isEmail().bail().normalizeEmail().optional(),
 		body('record.dateSent').isISO8601().bail().toDate().optional(),
 		handleError
 	]

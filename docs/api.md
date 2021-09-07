@@ -35,7 +35,7 @@ error | string | Displays error text on failure
 			"date_created": "2021-09-06T15:28:42.845Z",
 			"date_updated": "2021-09-06T15:28:42.843Z",
 			"sender": "client@email.local",
-			"recepient": "service@corp.local",
+			"recipient": "service@corp.local",
 			"content": "Hello, this is a message",
 			"date_sent": "2021-09-01T04:00:00.000Z",
 			"is_palindrome": false
@@ -45,7 +45,7 @@ error | string | Displays error text on failure
 			"date_created": "2021-09-06T15:28:43.720Z",
 			"date_updated": "2021-09-06T15:29:52.013Z",
 			"sender": "client@email.local",
-			"recepient": "service@corp.local",
+			"recipient": "service@corp.local",
 			"content": "civic",
 			"date_sent": "2021-09-01T04:00:00.000Z",
 			"is_palindrome": true
@@ -70,8 +70,8 @@ Name | Type | Required/Optional | Description
 ---|---|---|---
 record | JSON | Required | Contains the fields and attributes of a message record
 record.sender | string | Required | Email of user which sent the message. Must follow `email` format
-record.recepient | string | Required | Email of user which received the message. Must follow `email` format
-record.dateSent | string | Required | Date message was sent to recepient. Must follow `ISO8601` format
+record.recipient | string | Required | Email of user which received the message. Must follow `email` format
+record.dateSent | string | Required | Date message was sent to recipient. Must follow `ISO8601` format
 record.content | string | Required | Text content of message
 
 ##### Example
@@ -79,7 +79,7 @@ record.content | string | Required | Text content of message
 {
 	"record": {
 		"sender": "client@email.local",
-		"recepient": "service@corp.local",
+		"recipient": "service@corp.local",
 		"dateSent": "2021-09-02",
 		"content": "Hello, this is a message"
 	}
@@ -133,7 +133,7 @@ error | string | Displays error text on failure
 		"date_created": "2021-09-06T16:00:12.079Z",
 		"date_updated": "2021-09-06T16:00:12.079Z",
 		"sender": "client@email.local",
-		"recepient": "service@corp.local",
+		"recipient": "service@corp.local",
 		"content": "Hello, this is a message",
 		"date_sent": "2021-09-01T04:00:00.000Z",
 		"is_palindrome": false
@@ -160,8 +160,8 @@ Name | Type | Required/Optional | Description
 ---|---|---|---
 record | JSON | Required | Contains the fields and attributes of a message record
 record.sender | string | Optional | Email of user which sent the message. Must follow `email` format
-record.recepient | string | Optional | Email of user which received the message. Must follow `email` format
-record.dateSent | string | Optional | Date message was sent to recepient. Must follow `ISO8601` format
+record.recipient | string | Optional | Email of user which received the message. Must follow `email` format
+record.dateSent | string | Optional | Date message was sent to recipient. Must follow `ISO8601` format
 record.content | string | Optional | Text content of message
 
 ##### Example

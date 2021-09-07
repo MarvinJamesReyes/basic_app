@@ -44,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recepient\": \"service@corp.local\",\r\n        \"dateSent\": \"2021-09-02\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recipient\": \"service@corp.local\",\r\n        \"dateSent\": \"2021-09-02\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,7 +94,7 @@
 							"    const [validation] = results;\r",
 							"    pm.expect(validation).is.a('object');\r",
 							"\r",
-							"    pm.expect(validation.param).to.eq('record.recepient');\r",
+							"    pm.expect(validation.param).to.eq('record.recipient');\r",
 							"    pm.expect(validation.value).to.eq('Not an email');\r",
 							"    pm.expect(validation.msg).to.eq('Invalid value');\r",
 							"});"
@@ -108,7 +108,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recepient\": \"Not an email\",\r\n        \"dateSent\": \"2021-09-02\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recipient\": \"Not an email\",\r\n        \"dateSent\": \"2021-09-02\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -172,7 +172,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recepient\": \"service@corp.locall\",\r\n        \"dateSent\": \"October 4, 2010\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recipient\": \"service@corp.locall\",\r\n        \"dateSent\": \"October 4, 2010\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -236,7 +236,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recepient\": \"service@corp.local\",\r\n        \"dateSent\": \"2021-09-02\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recipient\": \"service@corp.local\",\r\n        \"dateSent\": \"2021-09-02\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -488,7 +488,7 @@
 							"    const [validation] = results;\r",
 							"    pm.expect(validation).is.a('object');\r",
 							"\r",
-							"    pm.expect(validation.param).to.eq('record.recepient');\r",
+							"    pm.expect(validation.param).to.eq('record.recipient');\r",
 							"    pm.expect(validation.value).to.eq('Not an email');\r",
 							"    pm.expect(validation.msg).to.eq('Invalid value');\r",
 							"});"
@@ -502,7 +502,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"record\": {\r\n        \"recepient\": \"Not an email\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"record\": {\r\n        \"recipient\": \"Not an email\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -573,7 +573,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recepient\": \"service@corp.locall\",\r\n        \"dateSent\": \"October 4, 2010\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"record\": {\r\n        \"sender\": \"client@email.local\",\r\n        \"recipient\": \"service@corp.locall\",\r\n        \"dateSent\": \"October 4, 2010\",\r\n        \"content\": \"Hello, this is a message\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

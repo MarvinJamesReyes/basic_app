@@ -6,7 +6,7 @@ Database layer logic. Processes requests and queries, and interacts with the DB 
 * `insert` Inserts a record into a table
 * `load` Loads a record using given `id` param
 * `update` Updates a record with a given `id`
-* `del` Deletes a recod with a given `id`
+* `del` Deletes a record with a given `id`
 * `createTable` Creates a table in db with a given `tableName` and `fields`
 * `dropTable` Drops a table using a given `tableName`
 
