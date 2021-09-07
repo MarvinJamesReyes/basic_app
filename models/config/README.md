@@ -25,4 +25,4 @@ Fields are defined by a name and a field type
 * `unique` Mark a field as unique. Data value uniqueness will be enforced at the DB level
 * `calculatedFn` Defines logic for a calculated field. Functions will receive record data as the default argument
 
-[&larr; Go Back](../../README.md)
+[&larr; Go Back](../../README.md#modelsconfig)
