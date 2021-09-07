@@ -45,6 +45,7 @@ App and DB configuration is defined in `config.js`. Values can be configured via
 ### Steps
 * Install packages using `yarn` or `npm install`
 * Ensure `DB_NAME` has been defined with your database name
+* Define any other environment variables found in `config.js`, as needed
 * Ensure a database exists with the defined `DB_NAME`
 * Build your app tables
 ```

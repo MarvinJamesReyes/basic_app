@@ -17,12 +17,13 @@ Set of tests used to test functionality of individual components. This includes 
 
 ### Steps
 * Ensure `TEST_DB_NAME` has been defined with your database name
+* Define any other environment variables found in `config.js`, as needed
 * Ensure a database exists with the defined `TEST_DB_NAME`
 * Build your test tables using the flag `-t`
 ```
 sh run.sh -c setup -t
 ```
-* Run mocha tests. Tests ran through `run.sh` should ensure `NODE_ENV=test`
+* Run mocha tests. Tests ran through `run.sh` will automatically ensure `NODE_ENV=test`
 ```
 sh run.sh -c test
 ```
