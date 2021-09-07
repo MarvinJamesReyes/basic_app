@@ -218,4 +218,4 @@ error | string | Displays error text on failure
 }
 ```
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../README.md#api)

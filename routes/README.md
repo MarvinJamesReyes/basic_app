@@ -13,4 +13,4 @@ Due to the nature of controllers being instances, they must be bound to call ind
 * `DELETE /:id` Deletes a single record
 
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../README.md#routes)

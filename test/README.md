@@ -27,4 +27,4 @@ sh run.sh -c setup -t
 sh run.sh -c test
 ```
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../README.md#tests)

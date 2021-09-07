@@ -1,4 +1,4 @@
 ## Docs
 Supplementary documentation and client facing resources can be stored here
 
-[&larr; Go Back](../README.md)
+[&larr; Go Back](../README.md#docs)
