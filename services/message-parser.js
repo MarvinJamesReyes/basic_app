@@ -2,12 +2,12 @@ function isEven(str) {
 	return (str.length % 2) === 0;
 }
 
-function equalLetters(str1, str2) {
+function eqReverseLetters(str1, str2) {
 	if (str1.length !== str2.length) return false;
 
-	const sorted1 = str1.split('').sort();
-	const sorted2 = str2.split('').sort();
-	const differences = sorted1.filter((value, key) => value !== sorted2[key]);
+	const reversed = str2.split('').reverse();
+	const differences = str1.split('')
+		.filter((value, key) => value !== reversed[key]);
 
 	return differences.length === 0;
 }
@@ -17,8 +17,8 @@ module.exports = {
 		return isEven(str);
 	},
 
-	equalLetters(str1, str2) {
-		return equalLetters(str1, str2);
+	eqReverseLetters(str1, str2) {
+		return eqReverseLetters(str1, str2);
 	},
 
 	isPalindrome(str) {
@@ -29,6 +29,6 @@ module.exports = {
 		const prefix = normalized.slice(0, centerIndex);
 		const suffix = normalized.slice(offsetIndex, normalized.length);
 
-		return (equalLetters(prefix, suffix));
+		return (eqReverseLetters(prefix, suffix));
 	}
 };
